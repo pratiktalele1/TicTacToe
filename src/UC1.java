@@ -61,6 +61,7 @@ public class UC1 {
 			}
 		} else {
 			System.out.println("wrong input");
+			UC2();
 		}
 		System.out.println("player select - " + this.player + " pc select - " + this.pc);
 
@@ -87,23 +88,24 @@ public class UC1 {
 	}
 	//UC4 case is for next move
 	public void UC4(int getUserInput) {
-
-		gameBoard[getUserInput - 1] = this.player;
-
+			gameBoard[getUserInput - 1] = this.player;
 	}
 	//UC5 case is for checking empty location and move
 	public void UC5() {
+		
+		int sendTieValue=0;
 		System.out.println("---------------------------------");
 		System.out.println("available location");
 		for (int i = 0; i < gameBoard.length - 1; i++) {
 			if (gameBoard[i] == ' ') {
 				System.out.print(i + 1 + " ");
+			
 			}
 		}
 		System.out.println("\n---------------------------------");
-
+	
 	}
-	//UC6 case is for toss play first
+	//UC6 case is for toss play first computer move
 	public void UC6() {
 		int firstMove = (int) Math.random() * 2;
 		if (firstMove == 0) {
@@ -125,56 +127,56 @@ public class UC1 {
 
 		System.out.println("--------------------------------------");
 		if (gameBoard[0] == this.player && gameBoard[1] == this.player && gameBoard[2] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[3] == this.player && gameBoard[4] == this.player && gameBoard[5] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[6] == this.player && gameBoard[7] == this.player && gameBoard[8] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[0] == this.player && gameBoard[3] == this.player && gameBoard[6] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[1] == this.player && gameBoard[4] == this.player && gameBoard[7] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[2] == this.player && gameBoard[5] == this.player && gameBoard[8] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[0] == this.player && gameBoard[4] == this.player && gameBoard[8] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
 
 		}
 		if (gameBoard[2] == this.player && gameBoard[4] == this.player && gameBoard[6] == this.player) {
-			System.out.println("player win :)");
+			System.out.println("player 1 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 			playerOrPc=1;
@@ -184,70 +186,74 @@ public class UC1 {
 		if(playerOrPc!=1)
 		{
 		if (gameBoard[0] == this.pc && gameBoard[1] == this.pc && gameBoard[2] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		}
 		if (gameBoard[3] == this.pc && gameBoard[4] == this.pc && gameBoard[5] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 		}
 		if (gameBoard[6] == this.pc && gameBoard[7] == this.pc && gameBoard[8] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 		}
 		if (gameBoard[0] == this.pc && gameBoard[3] == this.pc && gameBoard[6] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 		}
 		if (gameBoard[1] == this.pc && gameBoard[4] == this.pc && gameBoard[7] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 		}
 		if (gameBoard[2] == this.pc && gameBoard[5] == this.pc && gameBoard[8] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 		}
 		if (gameBoard[0] == this.pc && gameBoard[4] == this.pc && gameBoard[8] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 		}
 		if (gameBoard[2] == this.pc && gameBoard[4] == this.pc && gameBoard[6] == this.pc) {
-			System.out.println("pc win :)");
+			System.out.println("player 2 win :)");
 			winnerPlayer = 1;
 			sendVal=2;
 		
 
 		}
 		}
+		
+		boolean tieOrChange=false;
 		if (winnerPlayer == 0) {
 			int emptyLocation = 0;
-			for (int i = 0; i < gameBoard.length; i++) {
+			for (int i = 0; i < gameBoard.length - 1; i++) {
 				if (gameBoard[i] == ' ') {
-					emptyLocation++;
+					tieOrChange=true;
 				}
 			}
-			if (emptyLocation != 0) {
+			}
+			if (tieOrChange==true) {
 				System.out.println("Change the turn");
 				sendVal=1;
 			} else {
-				System.out.println("tie");
+				if(winnerPlayer==0) {
+					System.out.println("tie");
+				}
+				
 				sendVal=2;
 			}
-		}
-		System.out.println("--------------------------------------");
 		 return sendVal;
 		
 	}
@@ -273,6 +279,38 @@ public class UC1 {
 		if(getUserInput==1) {
 			checkInitilize=true;
 		}
-		return 1;
+		int sendValue;
+		if(getUserInput==1) {
+			sendValue=1;
+		}else {
+			sendValue=0;
+		}
+		return sendValue;
+	}
+
+	public void secondPlayer() {
+		int input =1;
+		UC5();
+		while(input!=0) {
+			System.out.print("Enter location number between 1-9 - ");
+			Scanner scanInput = new Scanner(System.in);
+			int getUserInput = scanInput.nextInt();
+
+			if (getUserInput > 0 && getUserInput < 10) {
+
+				if (gameBoard[getUserInput - 1] == ' ') {
+					System.out.println("empty location");
+					gameBoard[getUserInput - 1] = this.pc;
+					input=0;
+
+				} else {
+					System.out.println("filled location");
+				}
+			} else {
+				System.out.println("wrong input");
+			}
+		}
+
+
 	}
 }

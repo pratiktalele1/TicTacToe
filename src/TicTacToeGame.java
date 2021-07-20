@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class TicTacToeGame {
 	public static void main(String[] args) {
 		char[] gameBoard = new char[10];
@@ -15,8 +16,8 @@ public class TicTacToeGame {
 		
 		UC1 play = new UC1();
 		
-		play.UC1Case();
-		play.UC2();
+		play.uC1Case();
+		play.uC2();
 		
 		while(turn!=0) {
 			System.out.print("want to play with pc 0 for pc with second player 1  - ");
@@ -25,7 +26,8 @@ public class TicTacToeGame {
 			
 			if(getUserInput==0) {
 				//computer move random
-				play.UC6();
+				play.uC6();
+				//play.uC1Case();
 				turn=0;
 			}else if(getUserInput==1) {
 				System.out.println("play with second player");
@@ -35,33 +37,33 @@ public class TicTacToeGame {
 		
 
 		while (win != 0) {
-			result = play.UC7();
+			result = play.uC7();
 			if (result == 2) {
 				win = 0;
-				int repeat = play.UC13();
+				int repeat = play.uC13();
 				if (repeat == 1) {
 					result = 0;
 					win = 1;
-					play.UC1Case();
+					play.uC1Case();
 
 				} else {
 					break;
 				}
 
 			} else {
-				play.UC1Case();
-				play.UC5();
-				play.UC3();
+				play.uC1Case();
+				play.uC5();
+				play.uC3();
 				if(getUserInput==0) {
 					//computer play
-					play.UC8();
+					play.uC8();
 				}else {
 					System.out.println("play second player");
-					play.UC1Case();
+					play.uC1Case();
 					play.secondPlayer();
 				}
 				
-				play.UC1Case();
+				play.uC1Case();
 
 			}
 
